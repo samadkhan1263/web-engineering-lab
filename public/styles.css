@@ -1,0 +1,78 @@
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible 
+{
+  outline: 3px solid #0b5fff;
+  outline-offset: 1px;
+}
+
+.skip-link 
+{
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus 
+{
+  left: 10px;
+  top: 10px;
+  padding: 8px;
+  background: #ffffff;
+}
+
+nav ul li a 
+{
+  display: inline-block;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 8px;
+  line-height: 24px;
+}
+
+nav ul li + li 
+{
+  margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  table caption 
+  {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  
+  th, td
+   {
+    border: 1px solid #ccc;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  
+  th 
+  {
+    background-color: #f4f4f4;
+  }
+  
+figure 
+{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+main > svg 
+{
+  display: block;
+  margin: 20px auto;
+}
