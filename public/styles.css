@@ -1,78 +1,220 @@
+@layer reset, base, components, utilities;
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible 
-{
-  outline: 3px solid #0b5fff;
-  outline-offset: 1px;
-}
+@layer components {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 1px;
+  }
 
-.skip-link 
-{
-  position: absolute;
-  left: -9999px;
-}
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+  }
 
-.skip-link:focus 
-{
-  left: 10px;
-  top: 10px;
-  padding: 8px;
-  background: #ffffff;
-}
+  .skip-link:focus {
+    left: 10px;
+    top: 10px;
+    padding: 8px;
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
 
-nav ul li a 
-{
-  display: inline-block;
-  min-height: 48px;
-  min-width: 48px;
-  padding: 12px 8px;
-  line-height: 24px;
-}
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
 
-nav ul li + li 
-{
-  margin-top: 8px;
-}
+  nav ul li a {
+    display: inline-block;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 8px;
+    line-height: 24px;
+  }
 
-table {
+  table {
     width: 100%;
     max-width: 400px;
     border-collapse: collapse;
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  
-  table caption 
-  {
+
+  table caption {
     font-weight: bold;
     margin-bottom: 8px;
     text-align: left;
   }
-  
-  th, td
-   {
-    border: 1px solid #ccc;
+
+  th, td {
+    border: 1px solid var(--color-border);
     padding: 10px 14px;
     text-align: left;
   }
-  
-  th 
-  {
-    background-color: #f4f4f4;
+
+  th {
+    background-color: var(--color-surface);
   }
-  
-figure 
-{
-  display: flex;
-  align-items: center;
-  gap: 8px;
+
+  figure {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  main > svg {
+    display: block;
+    margin: 20px auto;
+  }
 }
 
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-main > svg 
-{
-  display: block;
-  margin: 20px auto;
+  body, h1, h2, p, figure {
+    margin: 0;
+  }
+}
+
+@layer components {
+  main {
+    max-inline-size: 60rem;
+    margin-inline: auto;
+    padding-block: 1rem;
+  }
+}
+
+@layer components {
+  form p {
+    margin-block: 0.5rem 1rem;
+  }
+}
+
+@layer components {
+  a[aria-current="location"] {
+    border-block-end: 2px solid currentColor;
+  }
+}
+
+@layer components {
+  :where(nav ul li) a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+@layer base {
+  :root {
+    --space: 1rem;
+    --color-bg: #f4f9ff;
+    --color-text: #1b222b;
+    --color-accent: #0050b5;
+  }
+
+  body {
+    color: var(--color-text);
+    background: var(--color-bg);
+    padding: var(--space);
+  }
+
+  h1, h2 {
+    color: var(--color-accent);
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+}
+
+@layer base {
+  body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  input, textarea, button {
+    font: inherit;
+  }
+}
+
+@layer base {
+  :root {
+    --color-bg: oklch(98% 0.01 255);
+    --color-text: oklch(25% 0.02 255);
+    --color-accent: oklch(45% 0.18 255);
+
+    --color-surface: color-mix(in oklch, var(--color-bg) 92%, var(--color-accent));
+    --color-border: color-mix(in oklch, var(--color-text) 55%, var(--color-bg));
+  }
+}
+
+@layer utilities {
+  .text-muted {
+    color: color-mix(in oklch, var(--color-text) 75%, var(--color-bg));
+  }
+}
+
+@layer components {
+  label {
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    inline-size: 100%;
+    padding: 0.5rem;
+    color: inherit;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+  }
+
+  fieldset {
+    margin-block: 1rem;
+    border: 1px solid var(--color-border);
+  }
+
+  fieldset label {
+    display: inline;
+    margin-inline-end: 1rem;
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+
+    --color-bg: light-dark(oklch(98% 0.01 255), oklch(20% 0.02 255));
+    --color-text: light-dark(oklch(25% 0.02 255), oklch(94% 0.01 255));
+    --color-accent: light-dark(oklch(45% 0.18 255), oklch(75% 0.12 255));
+  }
+}
+
+@layer components {
+  button {
+    padding: 0.6rem 1.5rem;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: color-mix(in oklch, var(--color-accent), black 15%);
+  }
+
+  svg {
+    color: var(--color-accent);
+  }
 }

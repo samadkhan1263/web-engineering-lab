@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Samad - Lab 02 - 2430-0177</title>
+  <title>Samad - Lab 03 - 2430-0177</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -15,8 +15,8 @@
     <h1 id="greeting">Web Engineering Lab</h1>
     <nav>
       <ul>
-        <li><a href="#schedule" aria-current="location">Office Hours</a></li>
-        <li><a href="#feedback">Send Feedback</a></li>
+        <li><a href="#schedule" class="nav-link" aria-current="location">Office Hours</a></li>
+        <li><a href="#feedback" class="nav-link">Send Feedback</a></li>
       </ul>
     </nav>
   </header>
@@ -58,16 +58,15 @@
       <figure>
         <svg role="img" aria-labelledby="pin-title" width="24" height="24" viewBox="0 0 24 24">
           <title id="pin-title">Location pin</title>
-          <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#0b3d91" />
+          <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="currentColor" />
           <circle cx="12" cy="9" r="2.5" fill="#ffffff" />
         </svg>
-        <figcaption>All office hours are held in Room 214.</figcaption>
+        <figcaption class="text-muted">All office hours are held in Room 214.</figcaption>
       </figure>
     </section>
 
-
     <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="3" fill="#0b3d91" />
+      <circle cx="12" cy="12" r="3" fill="currentColor" />
     </svg>
 
     <section id="feedback">
@@ -83,7 +82,7 @@
           <label for="email">Email</label>
           <input type="email" id="email" name="email" autocomplete="email" placeholder="you@case.edu" required
             aria-describedby="email-hint" />
-          <span id="email-hint">We will only use this email to reply to you.</span>
+          <span id="email-hint" class="text-muted">We will only use this email to reply to you.</span>
         </p>
 
         <fieldset>
@@ -101,7 +100,7 @@
           <textarea id="message" name="message" rows="5" required></textarea>
         </p>
 
-        <button type="submit">Send Feedback</button>
+        <button type="submit" aria-label="Send Feedback">Send Feedback</button>
       </form>
     </section>
   </main>
